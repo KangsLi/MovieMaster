@@ -54,11 +54,12 @@ public class StoreData {
         try(
             Scanner input = new Scanner(new File(Constants.MOVIE_FILENAME));
 	){
-            while(input.hasNext()){
+            //while(input.hasNext())
+            for (int i = 0; i < Constants.TEST_PHASE_I_MOVIES; i ++){
                 String[] tokens = input.nextLine().split("\t");
                 conn.insertMovie(new Movie(tokens[0],tokens[1],tokens[2],
                         tokens[3],tokens[4],tokens[5],tokens[6],tokens[7],
-                        tokens[8],tokens[9],tokens[10],"posters/" + tokens[0] + ".jpg"));
+                        tokens[8],tokens[9],tokens[10],"./posters/" + tokens[0] + ".jpg"));
             }
 	} catch (FileNotFoundException e) {
             e.printStackTrace();
